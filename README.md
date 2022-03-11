@@ -2,9 +2,11 @@
 
 # Implementation
 
-Please rung program from statesAndCapitals
+Please run program from root statesAndCapitals at the top level.
 
-You can find my code at lib/src/main/java/statesAndCapitals/StatesAndCapitals.java
+**Do not run from statesAndCapitals in java directory**
+
+Path to code lib/src/main/java/statesAndCapitals/StatesAndCapitals.java
 
 [Link to code](lib/src/main/java/statesAndCapitals/StatesAndCapitals.java)
 
