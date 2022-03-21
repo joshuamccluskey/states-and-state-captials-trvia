@@ -157,14 +157,14 @@ public class StatesAndCapitals
         // A13. Submit how many states are in each time zone (or group of time zones)
         // Use collect(groupingBy()) and counting()
 
-        Map<String, Long> numberOfStatesByTimeZone = null; //states.stream().collect(Collectors.groupingBy(state -> state.getTimeZones().stream().count()));
+        Map<String, Long> numberOfStatesByTimeZone = states.stream().collect(groupingBy(state -> state.getTimeZones().toString(), counting()));
 
         testResults.put("A13", StatesAndCapitalsCheck.adv13(numberOfStatesByTimeZone));
 
         // A14. Submit how many state capitals are in each time zone
         // Use collect(groupingBy()) and counting()
 
-        Map<String, Long> numberOfStateCapitalsByTimeZone = null;
+        Map<String, Long> numberOfStateCapitalsByTimeZone = states.stream().collect(groupingBy(state -> state.getCapital().getTimeZone(), counting()));
 
         testResults.put("A14", StatesAndCapitalsCheck.adv14(numberOfStateCapitalsByTimeZone));
 
@@ -173,28 +173,28 @@ public class StatesAndCapitals
         // A21. Submit all state trees, sorted alphabetically (ascending)
         // Use sorted() and map()
 
-        List<String> stateTreesSortedAscending = null;
+        List<String> stateTreesSortedAscending = states.stream().map(StateInfo::getStateTree).sorted().collect(toList());
 
         testResults.put("A21", StatesAndCapitalsCheck.adv21(stateTreesSortedAscending));
 
         // A22. Submit all state names, separated by "; "
         // Use collect(joining()) and map()
 
-        String allStateNamesSemicolonDelimited = null;
+        String allStateNamesSemicolonDelimited = states.stream().map(StateInfo::getStateName).collect(joining("; "));
 
         testResults.put("A22", StatesAndCapitalsCheck.adv22(allStateNamesSemicolonDelimited));
 
         // A23. Submit all distinct state birds
         // Use distinct() and map()
 
-        List<String> allDistinctStateBirds = null;
+        List<String> allDistinctStateBirds = states.stream().map(StateInfo::getStateBird).distinct().collect(toList());
 
         testResults.put("A23", StatesAndCapitalsCheck.adv23(allDistinctStateBirds));
 
         // A24. Submit all distinct state birds, but with any kind of mockingbird removed
         // Use distinct(), map(), and filter()
 
-        List<String> allDistinctStateBirdsMinusMockingbirds = null;
+        List<String> allDistinctStateBirdsMinusMockingbirds = states.stream().map(StateInfo::getStateBird).filter(state -> !state.contains("mockingbird")).distinct().collect(toList());
 
         testResults.put("A24", StatesAndCapitalsCheck.adv24(allDistinctStateBirdsMinusMockingbirds));
 
