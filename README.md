@@ -46,3 +46,6 @@ Look in the demo folder for a folder called statesAndCapitals. Open that project
 - 1 pt additional for finishing all tests Basic -> Advanced 2
 - 1 pt for README with clear instructions on how to run application
 # states-and-state-captials-trvia
+
+## Refactor
+- finished all required problems to A24
